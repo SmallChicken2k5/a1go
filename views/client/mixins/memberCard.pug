@@ -1,0 +1,7 @@
+mixin memberCard(name, role, avatarUrl, href)
+  a.d-flex.align-items-center.gap-3.p-3.border.rounded-3.text-decoration-none.text-reset(href=href)
+    img(src=avatarUrl alt=name width="56" height="56" class="rounded-circle object-fit-cover")
+    .flex-grow-1
+      div.fw-semibold= name
+      small.text-secondary= role
+    i.bi.bi-chevron-right.text-secondary

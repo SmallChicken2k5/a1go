@@ -1,0 +1,57 @@
+extends ../../layouts/default.pug
+include ../../mixins/hero.pug
+include ../../mixins/section.pug
+include ../../mixins/featureCard.pug
+include ../../mixins/stat.pug
+include ../../mixins/memberCard.pug
+include ../../mixins/docItem.pug
+
+block main
+    +hero('Câu lạc bộ A1go', 'Nơi kết nối, học hỏi và chia sẻ kiến thức lập trình & công nghệ.')
+
+    +section('Khám phá nhanh', 'Đi tới những khu vực chính của câu lạc bộ.')
+        .row.row-cols-1.row-cols-md-2.row-cols-lg-4.g-3
+            .col
+                +featureCard('bi-people', 'Thành viên', 'Danh sách và hồ sơ thành viên.', '/members')
+            .col
+                +featureCard('bi-trophy', 'Danh hiệu', 'Thành tích và phần thưởng.', '/awards')
+            .col
+                +featureCard('bi-clock-history', 'Lịch sử', 'Dấu mốc phát triển của CLB.', '/history')
+            .col
+                +featureCard('bi-journal-text', 'Tài liệu', 'Tổng hợp tài liệu học tập.', '/docs')
+
+    +section('Số liệu nổi bật')
+        .row.row-cols-2.row-cols-md-4.g-3
+            .col
+                +stat('120+', 'Thành viên')
+            .col
+                +stat('450+', 'Tài liệu')
+            .col
+                +stat('1.2k', 'Bài viết')
+            .col
+                +stat('36', 'Sự kiện/năm')
+
+    +section('Thành viên tiêu biểu')
+        .row.row-cols-1.row-cols-md-3.g-3
+            .col
+                +memberCard('Nguyễn An', 'Chủ nhiệm', 'https://i.pravatar.cc/112?img=1', '/members/an')
+            .col
+                +memberCard('Trần Bình', 'Phó chủ nhiệm', 'https://i.pravatar.cc/112?img=2', '/members/binh')
+            .col
+                +memberCard('Lê Chi', 'Trưởng ban nội dung', 'https://i.pravatar.cc/112?img=3', '/members/chi')
+
+    +section('Tài liệu mới')
+        .row.g-3
+            .col-lg-7
+                .list-group
+                    +docItem('Clean Code - Tóm tắt chương 1', '/docs/clean-code-1', '3 ngày trước')
+                    +docItem('Node.js Streams cơ bản', '/docs/node-streams', '5 ngày trước')
+                    +docItem('SQL Indexing 101', '/docs/sql-index', '1 tuần trước')
+                    +docItem('Docker Compose cho dev', '/docs/docker-compose', '2 tuần trước')
+            .col-lg-5
+                .p-4.border.rounded-3.h-100
+                    h3.h6.mb-2 Tham gia CLB
+                    p.text-secondary.small Cùng học, cùng làm dự án, cùng phát triển.
+                    a.btn.btn-warning.w-100(href="/join")
+                        i.bi.bi-person-plus.me-2
+                        | Đăng ký ngay

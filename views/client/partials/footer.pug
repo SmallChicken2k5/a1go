@@ -1,0 +1,48 @@
+- const year = new Date().getFullYear()
+
+footer#site-footer(role='contentinfo')
+  .container.py-5
+    .row.gy-4
+      .col-md-5
+        a.d-inline-flex.align-items-center.mb-3.text-decoration-none.brand-logo(href='/' aria-label='Trang chủ')
+          i.bi.bi-cpu-fill.fs-4.icon-accent.me-2
+          span.logo-word A1go
+          span.logo-o.ms-1(aria-hidden='true')
+          span.visually-hidden o cộng trong vòng tròn
+        p.small.mb-0 Nơi thảo luận, chia sẻ kiến thức lập trình và công nghệ.
+
+      .col-sm-6.col-md-3
+        h6.text-uppercase.mb-3 Liên kết nhanh
+        ul.list-unstyled.mb-0
+          li.mb-2: a.link-light.text-decoration-none(href='/') Trang chủ
+          li.mb-2: a.link-light.text-decoration-none(href='/forums') Diễn đàn
+          li.mb-2: a.link-light.text-decoration-none(href='/tags') Thẻ
+          li: a.link-light.text-decoration-none(href='/about') Giới thiệu
+
+      .col-sm-6.col-md-4
+        h6.text-uppercase.mb-3 Kết nối
+        .d-flex.align-items-center.gap-3
+          a.text-light(aria-label='Facebook' href='https://facebook.com' target='_blank' rel='noopener')
+            i.bi.bi-facebook.fs-4
+            span.visually-hidden Facebook
+          a.text-light(aria-label='Twitter' href='https://twitter.com' target='_blank' rel='noopener')
+            i.bi.bi-twitter.fs-4
+            span.visually-hidden Twitter
+          a.text-light(aria-label='GitHub' href='https://github.com' target='_blank' rel='noopener')
+            i.bi.bi-github.fs-4
+            span.visually-hidden GitHub
+          a.text-light(aria-label='YouTube' href='https://www.youtube.com' target='_blank' rel='noopener')
+            i.bi.bi-youtube.fs-4
+            span.visually-hidden YouTube
+        p.small.text-secondary.mt-3
+          i.bi.bi-envelope.me-2
+          | contact@a1go.dev
+
+  .border-top.border-secondary
+  .container.py-3
+    .d-flex.flex-column.flex-md-row.justify-content-between.align-items-center.gap-2
+      p.small.mb-0 © #{year} A1go Forum. All rights reserved.
+      .d-flex.align-items-center.gap-3
+        a.link-light.text-decoration-none(href='/privacy') Privacy
+        span.text-secondary ·
+        a.link-light.text-decoration-none(href='/terms') Terms

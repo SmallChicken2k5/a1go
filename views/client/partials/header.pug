@@ -1,0 +1,31 @@
+header#site-header
+    nav.navbar.navbar-expand-lg.navbar-dark
+        .container-lg
+            a.navbar-brand.d-flex.align-items-center.gap-2(href="/")
+                i.bi.bi-cpu-fill.fs-4.icon-accent
+                span.fw-semibold(style="letter-spacing:.3px") A1go Forum
+            button.navbar-toggler(type="button", data-bs-toggle="collapse", data-bs-target="#mainNav", aria-controls="mainNav", aria-expanded="false", aria-label="Toggle navigation")
+                span.navbar-toggler-icon
+
+            #mainNav.collapse.navbar-collapse
+                ul.navbar-nav.me-auto.mb-2.mb-lg-0
+                    li.nav-item
+                        a.nav-link.active(aria-current="page", href="/") Trang chủ
+                    li.nav-item
+                        a.nav-link(href="/topics") Chủ đề
+                    li.nav-item
+                        a.nav-link(href="/about") Giới thiệu
+
+                form.d-flex(role="search", method="get", action="/search")
+                    input.form-control.form-control-sm.me-2(type="search", name="q", placeholder="Tìm kiếm...", aria-label="Search")
+                    button.btn.btn-sm.btn-brand(type="submit")
+                        i.bi.bi-search.me-1
+                        | Tìm
+
+                ul.navbar-nav.ms-3
+                    li.nav-item
+                        a.nav-link(position="relative", href="/notifications", title="Thông báo")
+                            i.bi.bi-bell.icon-accent
+                    li.nav-item
+                        a.nav-link(href="/profile", title="Tài khoản")
+                            i.bi.bi-person-circle.icon-accent

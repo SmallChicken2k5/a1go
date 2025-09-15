@@ -1,0 +1,19 @@
+mixin hero(title, subtitle)
+  section.py-5.bg-body-tertiary.border-bottom
+    .container
+      .row.align-items-center.gy-4
+        .col-lg-8
+          h1.display-6.mb-3= title
+          if subtitle
+            p.lead.text-secondary.mb-4= subtitle
+          .d-flex.gap-2
+            a.btn.btn-warning(href="/about")
+              i.bi.bi-info-circle.me-2
+              | Giới thiệu
+            a.btn.btn-outline-dark(href="/forums")
+              i.bi.bi-chat-dots.me-2
+              | Diễn đàn
+        .col-lg-4.d-none.d-lg-block
+          .rounded-3.border.p-4.text-center
+            i.bi.bi-people-fill.display-5.text-warning.d-block
+            small.text-secondary Khám phá cộng đồng

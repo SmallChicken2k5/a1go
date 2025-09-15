@@ -1,0 +1,5 @@
+mixin docItem(title, href, meta)
+  a.list-group-item.list-group-item-action.d-flex.justify-content-between.align-items-center(href=href)
+    span= title
+    if meta
+      small.text-secondary= meta
