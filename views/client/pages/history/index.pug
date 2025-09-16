@@ -1,0 +1,40 @@
+extends ../../layouts/default.pug
+include ../../mixins/hero.pug
+include ../../mixins/section.pug
+include ../../mixins/item.pug
+include ../../mixins/card.pug
+
+block main
+  +hero('Lịch sử Câu lạc bộ', 'Các cột mốc phát triển của A1go qua từng năm.')
+
+  +section('Dòng thời gian', 'Những sự kiện và cột mốc đáng nhớ của CLB.')
+    .row.justify-content-center
+      .col-lg-10
+        .bg-light.p-4.p-md-5.rounded-3
+          +timelineItem('2018', 'Thành lập CLB A1go', 'CLB ra đời với mục tiêu kết nối sinh viên yêu thích CNTT.', 'bi-flag-fill', 'Khởi đầu')
+          +timelineItem('2019', 'Tổ chức workshop đầu tiên', 'Workshop giải thuật cơ bản thu hút hơn 80 bạn tham gia.', 'bi-megaphone-fill', 'Workshop')
+          +timelineItem('2020', 'Đạt giải Olympic Không chuyên', 'Những thành tích đầu tiên tại OLP mở ra giai đoạn phát triển mới.', 'bi-award-fill', 'OLP')
+          +timelineItem('2021', 'Tham gia ICPC khu vực', 'Các đội tuyển CLB ghi dấu tại vòng miền Nam.', 'bi-globe', 'ICPC')
+          +timelineItem('2022', 'Mở rộng quy mô hoạt động', 'Tăng số nhóm học, dự án mở và mentoring nội bộ.', 'bi-people-fill', 'Mở rộng')
+          +timelineItem('2023', 'Đổi mới nền tảng học tập', 'Chuẩn hóa tài liệu, quy trình review và hệ thống chấm bài.', 'bi-journal-text', 'Học tập')
+          +timelineItem('2024', 'Thành tích ICPC quốc gia', 'Vượt mốc thứ hạng mục tiêu, ghi nhận nhiều đội vào sâu.', 'bi-trophy-fill', 'ICPC')
+
+  +section('Các giai đoạn phát triển', 'Tóm tắt định hướng theo từng giai đoạn.')
+    .row.row-cols-1.row-cols-md-2.row-cols-lg-4.g-3
+      .col
+        +milestoneCard('bi-rocket-takeoff', 'Khởi động', '2018–2019', 'Xây nền tảng tổ chức, thu hút thành viên nòng cốt.')
+      .col
+        +milestoneCard('bi-diagram-3', 'Chuẩn hóa', '2020–2021', 'Xây lộ trình học, nhóm giải thuật, thi đấu OLP/ICPC.')
+      .col
+        +milestoneCard('bi-lightning-charge', 'Tăng tốc', '2022–2023', 'Mở rộng mentoring, dự án, tối ưu quy trình học.')
+      .col
+        +milestoneCard('bi-trophy', 'Bứt phá', '2024–nay', 'Đẩy mạnh thi đấu, công bố và chia sẻ thành quả.')
+
+  +section('Khám phá thêm')
+    .row.row-cols-1.row-cols-md-3.g-3
+      .col
+        +featureCard('bi-people', 'Thành viên', 'Gặp gỡ những gương mặt tiêu biểu của CLB.', '/members')
+      .col
+        +featureCard('bi-trophy', 'Thành tích', 'Danh hiệu OLP/ICPC qua các năm.', '/awards')
+      .col
+        +featureCard('bi-journal-text', 'Tài liệu', 'Kho tài liệu học tập và thực hành.', '/docs')

@@ -1,0 +1,50 @@
+extends ../../layouts/default.pug
+include ../../mixins/hero.pug
+include ../../mixins/section.pug
+include ../../mixins/item.pug
+include ../../mixins/card.pug
+include ../../mixins/state.pug
+include ../../mixins/filterChips.pug
+
+block main
+  +hero('Tài liệu Câu lạc bộ', 'Tổng hợp tài liệu học tập, ghi chú và hướng dẫn của CLB.')
+
+  +section('Bộ lọc', 'Lọc theo chủ đề hoặc mức độ.')
+    +filterChips(filters || [
+      { label: 'Tất cả', icon: 'bi-collection' },
+      { label: 'Web', icon: 'bi-window' },
+      { label: 'AI/ML', icon: 'bi-robot' },
+      { label: 'DSA', icon: 'bi-braces' },
+      { label: 'DevOps', icon: 'bi-boxes' },
+      { label: 'Database', icon: 'bi-database' },
+    ])
+
+  if docs && docs.length
+    +section('Tài liệu mới', 'Các tài liệu được cập nhật gần đây.')
+      .row.row-cols-1.row-cols-md-2.row-cols-lg-3.g-3
+        each d in docs
+          .col
+            +docCard(d.title, d.desc, d.tags, d.href, d.meta)
+
+    +section('Danh sách nhanh')
+      .row
+        .col-lg-8
+          .list-group
+            each d in docs
+              +docItem(d.title, d.href, d.meta)
+        .col-lg-4
+          .p-4.border.rounded-3.h-100
+            h3.h6.mb-2 Chia sẻ tài liệu
+            p.text-secondary.small Cùng đóng góp để kho tài liệu ngày càng phong phú.
+            a.btn.btn-warning.w-100(href="/docs/new")
+              i.bi.bi-upload.me-2
+              | Đăng tài liệu
+  else
+    +section('Tài liệu')
+      +emptyState(
+        'bi-journal-x',
+        'Chưa có tài liệu',
+        'Hãy là người đầu tiên chia sẻ tài liệu cho CLB.',
+        '/docs/new',
+        'Đăng tài liệu'
+      )

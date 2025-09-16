@@ -1,0 +1,7 @@
+mixin filterChips(filters)
+    .d-flex.flex-wrap.gap-2
+        each f in (filters || [])
+            a(class="badge rounded-pill text-bg-light text-decoration-none", href=f.href ? f.href : "#")
+                if f.icon
+                    i(class="bi " + f.icon + " me-1")
+                = f.label

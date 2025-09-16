@@ -1,10 +1,9 @@
 extends ../../layouts/default.pug
 include ../../mixins/hero.pug
 include ../../mixins/section.pug
-include ../../mixins/featureCard.pug
+include ../../mixins/card.pug
 include ../../mixins/stat.pug
-include ../../mixins/memberCard.pug
-include ../../mixins/docItem.pug
+include ../../mixins/item.pug
 
 block main
     +hero('Câu lạc bộ A1go', 'Nơi kết nối, học hỏi và chia sẻ kiến thức lập trình & công nghệ.')
@@ -52,6 +51,6 @@ block main
                 .p-4.border.rounded-3.h-100
                     h3.h6.mb-2 Tham gia CLB
                     p.text-secondary.small Cùng học, cùng làm dự án, cùng phát triển.
-                    a.btn.btn-warning.w-100(href="/join")
-                        i.bi.bi-person-plus.me-2
-                        | Đăng ký ngay
+                    a.btn.btn-warning.w-100(href="https://www.facebook.com/siu.algoclub", target="_blank", rel="noopener")
+                        i.bi.bi-facebook.me-2
+                        | Tham gia trên Facebook
