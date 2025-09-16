@@ -1,0 +1,64 @@
+extends ../../layouts/default.pug
+include ../../mixins/hero.pug
+include ../../mixins/section.pug
+include ../../mixins/memberCard.pug
+
+block main
+    +hero('Danh sách thành viên', 'Xem hồ sơ các thành viên của câu lạc bộ A1go.')
+
+    +section('Danh sách sinh viên', 'Thông tin chi tiết từng sinh viên.')
+        .row.row-cols-1.row-cols-md-2.g-4
+            .col
+                +memberCard2(
+                    'Nguyễn Văn A',
+                    'Chủ nhiệm',
+                    'https://i.pravatar.cc/160?img=1',
+                    'an@a1go.dev',
+                    'Sinh viên xuất sắc, đam mê công nghệ.',
+                    '/members/an'
+                )
+            .col
+                +memberCard2(
+                    'Nguyễn Văn B',
+                    'Phó chủ nhiệm',
+                    'https://i.pravatar.cc/160?img=2',
+                    'binh@a1go.dev',
+                    'Yêu thích AI và phát triển phần mềm.',
+                    '/members/binh'
+                )
+            .col
+                +memberCard2(
+                    'Trần Thị C',
+                    'Thành viên',
+                    'https://i.pravatar.cc/160?img=3',
+                    'c@a1go.dev',
+                    'Năng động, thích học hỏi và giao lưu.',
+                    '/members/c'
+                )
+            .col
+                +memberCard2(
+                    'Lê Văn D',
+                    'Thành viên',
+                    'https://i.pravatar.cc/160?img=4',
+                    'd@a1go.dev',
+                    'Đam mê lập trình web và thiết kế.',
+                    '/members/d'
+                )
+            .col
+                +memberCard2(
+                    'Phạm Thị E',
+                    'Thành viên',
+                    'https://i.pravatar.cc/160?img=5',
+                    'e@a1go.dev',
+                    'Thích nghiên cứu AI và công nghệ mới.',
+                    '/members/e'
+                )
+            .col
+                +memberCard2(
+                    'Hoàng Văn F',
+                    'Thành viên',
+                    'https://i.pravatar.cc/160?img=6',
+                    'f@a1go.dev',
+                    'Sáng tạo, ham học hỏi và chia sẻ kiến thức.',
+                    '/members/f'
+                )

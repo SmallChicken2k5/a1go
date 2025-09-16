@@ -5,3 +5,22 @@ mixin memberCard(name, role, avatarUrl, href)
       div.fw-semibold= name
       small.text-secondary= role
     i.bi.bi-chevron-right.text-secondary
+
+mixin memberCard2(name, role, avatarUrl, email, bio, href)
+  .card.h-100.shadow-lg.border-0.rounded-4.overflow-hidden
+    .row.g-0
+      .col-md-5.d-flex.align-items-center.justify-content-center.bg-light
+        img(src=avatarUrl alt=name width="150" height="150" class="object-fit-cover border border-3 border-warning")
+      .col-md-7
+        .card-body.p-4
+          h3.h5.fw-bold.mb-1= name
+          div.text-secondary.mb-2= role
+          if bio
+            p.text-muted.small.mb-2= bio
+          if email
+            div.mb-2
+              i.bi.bi-envelope.text-warning.me-2
+              span.text-secondary= email
+          a.btn.btn-warning.mt-2(href=href)
+            i.bi.bi-person-lines-fill.me-2
+            | Xem hồ sơ

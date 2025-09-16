@@ -1,0 +1,116 @@
+extends ../../layouts/default.pug
+include ../../mixins/hero.pug
+include ../../mixins/section.pug
+include ../../mixins/featureCard.pug
+include ../../mixins/stat.pug
+
+block main
+    +hero('Danh hiệu & Thành tích', 'Thành tích nổi bật của CLB A1go tại các kỳ thi Olympic và ICPC.')
+
+    +section('Các danh hiệu Olympic', 'Thành tích tại kỳ thi Olympic Tin học sinh viên Việt Nam các khối.')
+        .row.row-cols-1.row-cols-md-2.row-cols-lg-3.g-4
+            .col
+                +featureCard('bi-award', 'Khối Không chuyên', 'Giải thưởng dành cho sinh viên không chuyên ngành CNTT.', '/awards/olympic-nonmajor')
+            .col
+                +featureCard('bi-award', 'Khối Chuyên', 'Giải thưởng dành cho sinh viên chuyên ngành CNTT.', '/awards/olympic-major')
+            .col
+                +featureCard('bi-trophy', 'Khối Siêu cúp', 'Thành tích xuất sắc nhất toàn quốc.', '/awards/olympic-supercup')
+
+    +section('Các danh hiệu ICPC', 'Thành tích tại kỳ thi Lập trình viên quốc tế ICPC các cấp.')
+        .row.row-cols-1.row-cols-md-2.row-cols-lg-3.g-4
+            .col
+                +featureCard('bi-globe', 'ICPC Miền Nam', 'Thành tích tại vòng loại khu vực miền Nam.', '/awards/icpc-south')
+            .col
+                +featureCard('bi-trophy', 'ICPC Quốc gia', 'Thành tích tại vòng quốc gia.', '/awards/icpc-national')
+            .col
+                +featureCard('bi-award', 'ICPC Châu Á', 'Thành tích tại vòng loại châu Á.', '/awards/icpc-asia')
+
+    +section('Thống kê thành tích')
+        .row.row-cols-2.row-cols-md-4.g-3
+            .col
+                +stat('8', 'Giải Olympic Không chuyên')
+            .col
+                +stat('5', 'Giải Olympic Chuyên')
+            .col
+                +stat('2', 'Giải Olympic Siêu cúp')
+            .col
+                +stat('12', 'Giải ICPC các miền')
+            .col
+                +stat('4', 'Giải ICPC Quốc gia')
+            .col
+                +stat('2', 'Giải ICPC Châu Á')
+            .col
+                +stat('30+', 'Tổng số thành tích')
+
+    +section('Đồ thị phát triển ICPC qua các năm', 'Rank cao nhất của CLB tại các vòng thi ICPC từng năm.')
+        .row.justify-content-center
+            .col-lg-10
+                .bg-light.p-4.rounded-3.shadow-sm
+                    canvas#icpcChart(style="max-height:400px;")
+    +section('Thông tin về thành tích', 'Quy trình xét duyệt và ghi nhận thành tích.')
+        p.text-secondary.small
+            | Thành tích được ghi nhận dựa trên kết quả các kỳ thi Olympic Tin học sinh viên và ICPC các cấp. CLB luôn khuyến khích và hỗ trợ thành viên tham gia, phát triển năng lực lập trình và giải thuật.
+
+    script(src="https://cdn.jsdelivr.net/npm/chart.js")
+    script.
+        const ctx = document.getElementById('icpcChart').getContext('2d');
+        const icpcData = {
+            labels: ['2018', '2019', '2020', '2021', '2022', '2023'],
+            datasets: [
+                {
+                    label: 'Miền Nam',
+                    data: [25, 18, 15, 10, 8, 5],
+                    borderColor: 'rgba(255,191,0,1)',
+                    backgroundColor: 'rgba(255,191,0,0.2)',
+                    fill: false,
+                    tension: 0.3,
+                    pointStyle: 'circle',
+                    pointRadius: 5
+                },
+                {
+                    label: 'Quốc gia',
+                    data: [null, 20, 17, 10, 9, 7],
+                    borderColor: 'rgba(44,62,80,1)',
+                    backgroundColor: 'rgba(44,62,80,0.2)',
+                    fill: false,
+                    tension: 0.3,
+                    pointStyle: 'rect',
+                    pointRadius: 5
+                },
+                {
+                    label: 'Châu Á',
+                    data: [null, null, 40, 25, 20, 15],
+                    borderColor: 'rgba(52,152,219,1)',
+                    backgroundColor: 'rgba(52,152,219,0.2)',
+                    fill: false,
+                    tension: 0.3,
+                    pointStyle: 'triangle',
+                    pointRadius: 5
+                }
+            ]
+        };
+        new Chart(ctx, {
+            type: 'line',
+            data: icpcData,
+            options: {
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Thứ hạng cao nhất của CLB qua các vòng ICPC từng năm'
+                    },
+                    legend: {
+                        position: 'top'
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        reverse: true,
+                        title: {
+                            display: true,
+                            text: 'Thứ hạng'
+                        }
+                    }
+                }
+            }
+        });
